@@ -41,4 +41,4 @@ Se modificó el título inicial de la aplicación y se agregó un mensaje de bie
 
 Captura de la aplicación ejecutándose:
 
-captura_app.png
+image(01).png
