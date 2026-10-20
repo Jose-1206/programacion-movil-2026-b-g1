@@ -1,9 +1,60 @@
-/* Tema mínimo: verde institucional como color primario */
+
 :root {
-  --ion-color-primary: #009540;
-  --ion-color-primary-rgb: 0, 149, 64;
+  --ion-color-primary: #166a42;
+  --ion-color-primary-rgb: 22, 106, 66;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #008338;
-  --ion-color-primary-tint: #1aa053;
+  --ion-color-primary-shade: #135d3a;
+  --ion-color-primary-tint: #2d7955;
+
+  --ion-color-secondary: #154d71;
+  --ion-color-secondary-rgb: 21, 77, 113;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #124463;
+  --ion-color-secondary-tint: #2c5f7f;
+
+  --ion-color-success: #166534;
+  --ion-color-success-rgb: 22, 101, 52;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #13592e;
+  --ion-color-success-tint: #2d7448;
+
+  --ion-color-danger: #b42318;
+  --ion-color-danger-rgb: 180, 35, 24;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #9e1f15;
+  --ion-color-danger-tint: #bb392f;
+
+  --ion-background-color: #f4f7f5;
+  --ion-background-color-rgb: 244, 247, 245;
+  --ion-text-color: #152c22;
+  --ion-text-color-rgb: 21, 44, 34;
+
+  --app-font-sm: 0.875rem;
+  --app-font-base: 1rem;
+  --app-font-title: 1.25rem;
+
+  --app-space-sm: 0.5rem;
+  --app-space-md: 1rem;
+  --app-space-lg: 1.5rem;
+}
+
+.attendance-section {
+  margin: var(--app-space-md) 0;
+}
+
+.attendance-section h2 {
+  font-size: var(--app-font-title);
+}
+
+.attendance-section p {
+  font-size: var(--app-font-base);
+  line-height: 1.5;
+}
+
+.attendance-section__status {
+  margin-top: var(--app-space-lg);
 }

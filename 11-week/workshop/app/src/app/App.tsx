@@ -1,12 +1,27 @@
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+
+import {
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs,
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
+import {
+  calendarOutline,
+  personCircleOutline,
+  qrCodeOutline,
+} from 'ionicons/icons';
 
-import ProductDetailPage from '../features/products/presentation/ProductDetailPage';
-import ProductFormPage from '../features/products/presentation/ProductFormPage';
-import ProductListPage from '../features/products/presentation/ProductListPage';
+import {
+  AttendanceHistoryPage,
+  QrRegistrationPage,
+  StudentProfilePage,
+} from '../features/attendance/presentation/AttendanceSectionPage';
 
-/* CSS base de Ionic (obligatorio) */
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
 import '@ionic/react/css/structure.css';
@@ -14,25 +29,36 @@ import '@ionic/react/css/typography.css';
 import '@ionic/react/css/padding.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
-
-/* Tema de la aplicación */
 import './theme/variables.css';
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/productos" component={ProductListPage} />
-        <Route exact path="/productos/nuevo" component={ProductFormPage} />
-        {/* React Router v5 puede activar la ruta equivocada si dos patrones coinciden
-            (/productos/nuevo también encajaría con /productos/:id). Por eso :id se
-            restringe a dígitos y "nuevo" no lo activa. */}
-        <Route exact path="/productos/:id(\d+)" component={ProductDetailPage} />
-        <Route exact path="/productos/:id(\d+)/editar" component={ProductFormPage} />
-        <Route exact path="/">
-          <Redirect to="/productos" />
-        </Route>
-      </IonRouterOutlet>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route exact path="/tabs/historial" component={AttendanceHistoryPage} />
+          <Route exact path="/tabs/registrar" component={QrRegistrationPage} />
+          <Route exact path="/tabs/perfil" component={StudentProfilePage} />
+          <Route exact path="/">
+            <Redirect to="/tabs/historial" />
+          </Route>
+        </IonRouterOutlet>
+
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="historial" href="/tabs/historial">
+            <IonIcon icon={calendarOutline} aria-hidden="true" />
+            <IonLabel>Historial</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="registrar" href="/tabs/registrar">
+            <IonIcon icon={qrCodeOutline} aria-hidden="true" />
+            <IonLabel>Registrar QR</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="perfil" href="/tabs/perfil">
+            <IonIcon icon={personCircleOutline} aria-hidden="true" />
+            <IonLabel>Mi perfil</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
