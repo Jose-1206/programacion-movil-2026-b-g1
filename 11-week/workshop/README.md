@@ -19,7 +19,7 @@ This workshop focuses on improving the student experience, especially when revie
 - CODE_REPO: https://github.com/code-corhuila/attendance-control.git
 - BASELINE: Ionic React starter - https://github.com/code-corhuila/programacion-movil-2026-b-starter-react - Source commit: eb86696b1b80402585555f30ba8984ebcb553643
 - REFLECTION_DOC: https://docs.google.com/document/d/1-Cyc5vBrxMg67Hb2CNHZhG9irGgwzjSIBUxWDmmPBMA/edit?usp=sharing
-- MY_SCREENS: To be defined in CP1.
+- MY_SCREENS: Lista (/productos) hacia Historial de asistencias; Detalle (/productos/:id) hacia Detalle de registro; Formulario (/productos/nuevo) hacia Registro mediante QR.
 <!-- CONFIG-END -->
 
 ## Baseline
