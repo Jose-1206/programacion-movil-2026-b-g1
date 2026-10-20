@@ -10,6 +10,8 @@ import {
   IonSkeletonText,
   IonTitle,
   IonToolbar,
+  IonRefresher,
+  IonRefresherContent,
 } from '@ionic/react';
 import {
   loadAttendance,
@@ -52,6 +54,20 @@ export default function AttendanceHistoryPage() {
       </IonHeader>
 
       <IonContent className="ion-padding">
+        
+    <IonRefresher
+    slot="fixed"
+    onIonRefresh={async (event) => {
+        try {
+        await reload();
+        } finally {
+        event.detail.complete();
+        }
+    }}
+    >
+        <IonRefresherContent pullingText="Desliza para actualizar" />
+    </IonRefresher>
+
         {status === 'loading' && (
           <section aria-label="Cargando asistencias">
             <p>Consultando registros...</p>
