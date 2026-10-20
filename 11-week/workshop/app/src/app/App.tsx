@@ -16,8 +16,9 @@ import {
   qrCodeOutline,
 } from 'ionicons/icons';
 
+import AttendanceHistoryPage from '../features/attendance/presentation/AttendanceHistoryPage';
+
 import {
-  AttendanceHistoryPage,
   QrRegistrationPage,
   StudentProfilePage,
 } from '../features/attendance/presentation/AttendanceSectionPage';
