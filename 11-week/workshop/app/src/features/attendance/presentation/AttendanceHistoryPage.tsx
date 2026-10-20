@@ -53,7 +53,7 @@ export default function AttendanceHistoryPage() {
         </IonToolbar>
       </IonHeader>
 
-      <IonContent className="ion-padding">
+      <IonContent className="ion-padding attendance-history">
         
     <IonRefresher
     slot="fixed"
@@ -69,7 +69,11 @@ export default function AttendanceHistoryPage() {
     </IonRefresher>
 
         {status === 'loading' && (
-          <section aria-label="Cargando asistencias">
+          <section
+             role="status"
+            aria-live="polite"
+            aria-label="Cargando asistencias"
+          >
             <p>Consultando registros...</p>
             {[1, 2, 3].map((row) => (
               <IonCard key={row}>
@@ -94,7 +98,7 @@ export default function AttendanceHistoryPage() {
         )}
 
         {status === 'ready' && records.length === 0 && (
-          <section>
+            <section role="status" aria-live="polite">
             <h2>Aún no tienes asistencias registradas</h2>
             <p>Cuando registres una asistencia aparecerá aquí.</p>
             <IonButton routerLink="/tabs/registrar">

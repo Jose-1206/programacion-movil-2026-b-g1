@@ -58,3 +58,65 @@
 .attendance-section__status {
   margin-top: var(--app-space-lg);
 }
+
+
+/* Attendance history layout */
+
+.attendance-history ion-card,
+.attendance-history section {
+  width: 100%;
+  max-width: 44rem;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.attendance-history h2 {
+  font-size: 1.125rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.attendance-history p {
+  font-size: 1rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.attendance-history ion-button {
+  min-height: 44px;
+}
+
+ion-tab-button {
+  min-height: 48px;
+}
+
+ion-tab-bar ion-label {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 400px) {
+  ion-tab-bar ion-label {
+    font-size: 0.75rem;
+  }
+
+  .attendance-history ion-card {
+    margin-inline: 0;
+  }
+}
+
+
+/* Attendance card contrast */
+
+.attendance-history ion-card {
+  --background: #ffffff;
+  --color: #152c22;
+  background: #ffffff;
+  color: #152c22;
+}
+
+.attendance-history ion-card ion-card-content,
+.attendance-history ion-card h2,
+.attendance-history ion-card p {
+  color: #152c22;
+  opacity: 1;
+}
