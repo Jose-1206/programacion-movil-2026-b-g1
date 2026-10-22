@@ -115,6 +115,13 @@ export default function AttendanceHistoryPage() {
               <p>
                 Fecha: {new Date(record.dateTime).toLocaleString('es-CO')}
               </p>
+            <IonButton
+              fill="outline"
+              routerLink={`/tabs/historial/${record.id}`}
+              aria-label={`Ver detalle de ${record.courseName}`}
+            >
+               Ver detalle
+            </IonButton>
             </IonCardContent>
           </IonCard>
         ))}

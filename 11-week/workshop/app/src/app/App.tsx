@@ -18,6 +18,8 @@ import {
 
 import AttendanceHistoryPage from '../features/attendance/presentation/AttendanceHistoryPage';
 
+import AttendanceDetailPage from '../features/attendance/presentation/AttendanceDetailPage';
+
 import QrRegistrationPage from '../features/attendance/presentation/QrRegistrationPage';
 
 import {
@@ -39,6 +41,11 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
+          <Route
+            exact
+            path="/tabs/historial/:id"
+            component={AttendanceDetailPage}
+          />
           <Route
             exact
             path="/tabs/historial"
