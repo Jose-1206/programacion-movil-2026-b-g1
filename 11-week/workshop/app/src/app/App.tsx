@@ -18,8 +18,9 @@ import {
 
 import AttendanceHistoryPage from '../features/attendance/presentation/AttendanceHistoryPage';
 
+import QrRegistrationPage from '../features/attendance/presentation/QrRegistrationPage';
+
 import {
-  QrRegistrationPage,
   StudentProfilePage,
 } from '../features/attendance/presentation/AttendanceSectionPage';
 
