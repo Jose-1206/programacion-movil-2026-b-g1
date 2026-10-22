@@ -1,14 +1,28 @@
 
 import { useState, type FormEvent } from 'react';
 import {
-  IonAlert, IonButton, IonContent, IonHeader, IonInput, IonItem,
-  IonNote, IonPage, IonSpinner, IonTitle, IonToast, IonToolbar,
+  IonAlert,
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonNote,
+  IonPage,
+  IonSpinner,
+  IonTitle,
+  IonToast,
+  IonToolbar,
 } from '@ionic/react';
 
-type Feedback = { message: string; color: 'success' | 'danger' };
+type Feedback = {
+  message: string;
+  color: 'success' | 'danger';
+};
 
 async function validateDemoCode(code: string): Promise<void> {
   await new Promise<void>((resolve) => setTimeout(resolve, 1200));
+
   if (code === 'ERROR-DEMO') {
     throw new Error('Simulated request failure');
   }
@@ -20,23 +34,34 @@ export default function QrRegistrationPage() {
   const [sending, setSending] = useState(false);
   const [confirmDiscard, setConfirmDiscard] = useState(false);
   const [feedback, setFeedback] = useState<Feedback | null>(null);
+  const [submissionError, setSubmissionError] = useState('');
+
   const invalid = code.trim().length === 0;
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTouched(true);
+
     if (invalid || sending) return;
 
+    setSubmissionError('');
     setSending(true);
+
     try {
       await validateDemoCode(code.trim());
+
       setFeedback({
         color: 'success',
         message: 'Simulación completada. No se registró asistencia real.',
       });
+
       setCode('');
       setTouched(false);
     } catch {
+      setSubmissionError(
+        'No fue posible validar el código. Revísalo e intenta nuevamente.',
+      );
+
       setFeedback({
         color: 'danger',
         message: 'No se pudo validar el código. Intenta nuevamente.',
@@ -46,6 +71,13 @@ export default function QrRegistrationPage() {
     }
   };
 
+  const discardCode = () => {
+    setCode('');
+    setTouched(false);
+    setSubmissionError('');
+    setConfirmDiscard(false);
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -53,30 +85,48 @@ export default function QrRegistrationPage() {
           <IonTitle>Registro con QR</IonTitle>
         </IonToolbar>
       </IonHeader>
+
       <IonContent className="ion-padding attendance-registration">
         <h2>Ingresar código de la clase</h2>
+
         <p>
-          Introduce el código generado por el profesor. Este formulario
-          funciona en modo demostración, sin guardar asistencias reales.
+          Introduce el código generado por el profesor.
+          Este formulario funciona en modo demostración,
+          sin guardar asistencias reales.
         </p>
-        <form onSubmit={(event) => void submit(event)} noValidate>
+
+        <form
+          onSubmit={(event) => void submit(event)}
+          noValidate
+        >
           <IonItem>
             <IonInput
               label="Código del QR"
               labelPlacement="stacked"
               aria-label="Código QR de la sesión"
               value={code}
-              onIonInput={(event) => setCode(event.detail.value ?? '')}
+              onIonInput={(event) => {
+                setCode(event.detail.value ?? '');
+                setSubmissionError('');
+              }}
               onIonBlur={() => setTouched(true)}
               disabled={sending}
               required
             />
           </IonItem>
+
           {touched && invalid && (
             <IonNote color="danger" role="alert">
               Ingresa el código de la sesión para continuar.
             </IonNote>
           )}
+
+          {submissionError && (
+            <IonNote color="danger" role="alert">
+              {submissionError}
+            </IonNote>
+          )}
+
           <IonButton
             expand="block"
             type="submit"
@@ -84,34 +134,46 @@ export default function QrRegistrationPage() {
           >
             {sending ? (
               <>
-                <IonSpinner name="crescent" aria-hidden="true" />
+                <IonSpinner
+                  name="crescent"
+                  aria-hidden="true"
+                />
                 Validando...
               </>
-            ) : 'Validar código'}
+            ) : (
+              'Validar código'
+            )}
           </IonButton>
+
           <IonButton
             expand="block"
             fill="outline"
+            type="button"
             onClick={() => setConfirmDiscard(true)}
             disabled={!code || sending}
           >
             Cancelar registro
           </IonButton>
         </form>
+
         <IonAlert
           isOpen={confirmDiscard}
           onDidDismiss={() => setConfirmDiscard(false)}
           header="¿Descartar el código escrito?"
           message="Perderás el texto que ingresaste."
           buttons={[
-            { text: 'Seguir editando', role: 'cancel' },
+            {
+              text: 'Seguir editando',
+              role: 'cancel',
+            },
             {
               text: 'Descartar',
               role: 'destructive',
-              handler: () => { setCode(''); setTouched(false); },
+              handler: discardCode,
             },
           ]}
         />
+
         <IonToast
           isOpen={feedback !== null}
           onDidDismiss={() => setFeedback(null)}
