@@ -24,7 +24,7 @@ La base técnica es **de muy buen nivel**: la arquitectura, la seguridad y la do
 | Funcionalidades | 12 | 5 cerradas (HU-08 a HU-12) y el catálogo en construcción (HU-14). HU-13 y HU-15 a HU-19 siguen abiertas | 42 % |
 | Roles en la app | Clienta y negocio | Solo una guarda de sesión; faltan las guardas por rol (HU-13) | Pendiente |
 | Roles en la API | Clienta y negocio | Implementados con `requireRole` | ✅ |
-| Entidades y migraciones | 8 tablas de negocio | `0001_initial_schema.sql` versionada | ✅ |
+| Entidades y migraciones | 7 tablas | Las 7 en `0001_initial_schema.sql`, versionada | ✅ |
 | Datos semilla | Un usuario por rol | No hay | **0 %** |
 
 Para la demostración del lunes hacen falta, como mínimo, las guardas por rol y un flujo completo: agendar, ver mis citas y confirmar desde la agenda del negocio.
