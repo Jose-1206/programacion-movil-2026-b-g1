@@ -75,7 +75,7 @@ Ajustes de seguridad:
 | Evidencia | Qué se espera | Cómo está hoy |
 |---|---|---|
 | **Conventional Commits** | Mensajes como `feat(auth): …`, `fix(api): …` | ✅ En el trabajo del corte 3 |
-| **Pull Requests** | Cada tarea entra por PR y otra persona lo revisa | Parcial: hay PR con aprobación, pero casi todas las de `-api` y `-app` son de José, y hay PR sin revisión. No encadenen PR: ver el punto 1 |
+| **Pull Requests** | Cada tarea entra por PR y otra persona lo revisa | Parcial: hay PR con aprobación y otros sin revisión (`-api` #1 y `-app` #3). Repartan las revisiones entre todos y no encadenen PR: ver el punto 1 |
 | **Ramas padres `dev`, `qa` y `main`** | Las tres, con el flujo `feat/` o `fix/` → `dev` → `qa` → `main` | **Pendiente:** `-app`, `-api` e `-infra` no tienen `dev` ni `qa` |
 | **Etiqueta de la última versión** | Generar `v1.0.0` sobre `main` en `-app`, `-api` e `-infra` | **Pendiente.** Solo existe `v1.0.0-mvp`, en el repositorio anterior `attendance-control` |
 
