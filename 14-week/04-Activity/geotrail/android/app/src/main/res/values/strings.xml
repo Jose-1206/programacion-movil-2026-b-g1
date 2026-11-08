@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GeoTrail</string>
+    <string name="title_activity_main">GeoTrail</string>
+    <string name="package_name">edu.corhuila.geotrail.week14</string>
+    <string name="custom_url_scheme">edu.corhuila.geotrail.week14</string>
+</resources>

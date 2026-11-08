@@ -1,0 +1,45 @@
+:root {
+  --ion-color-primary: #165b60;
+  --ion-color-primary-rgb: 22,91,96;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #134f54;
+  --ion-color-primary-tint: #2e6b70;
+  --ion-background-color: #f7faf7;
+  --ion-text-color: #193336;
+}
+body { font-family: system-ui, -apple-system, 'Segoe UI', sans-serif; }
+ion-toolbar { --background: #f8fbf9; }
+ion-tab-bar { --background: #ffffff; padding-bottom: max(0px, env(safe-area-inset-bottom)); }
+.content-shell { width: min(100%, 900px); margin: auto; padding: 20px 24px 40px; }
+.login-shell { width: min(100% - 36px, 490px); margin: min(12vh, 90px) auto 40px; }
+.login-shell > h1, .page-intro > h1 { font-size: clamp(2.15rem, 6vw, 3.3rem); line-height: 1.12; margin: 8px 0 12px; }
+h2 { font-size: 1.15rem; line-height: 1.35; }
+.eyebrow { font-size: .76rem; font-weight: 800; letter-spacing: .14em; color: #477a72; }
+.muted { color: #5e7472; line-height: 1.6; }
+.brand-mark { background: #d9efe8; color: #165b60; font-size: 3rem; font-weight: 700; border-radius: 19px; width: 76px; height: 76px; display: grid; place-items: center; margin-bottom: 20px; }
+.form-card, .state-panel { background: #fff; border: 1px solid #e1eae5; border-radius: 20px; padding: 24px; box-shadow: 0 7px 26px rgba(12,50,48,.05); }
+.form-card h2:not(:first-child) { margin-top: 28px; }
+.form-card ion-item { --padding-start: 0px; --background: transparent; margin-bottom: 16px; }
+.form-card ion-button[expand=block] { margin-top: 22px; min-height: 44px; }
+.page-intro { margin-bottom: 22px; }
+.state-panel { text-align: center; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.state-panel > h2 { margin: 0; }
+.state-panel > p { margin: 0 0 12px; color: #627876; }
+.large-icon { font-size: 2.8rem; color: #2c7b74; }
+.section-header, .checkpoint-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.card-list { max-width: 760px; margin-inline: auto; }
+.checkpoint-card { margin: 12px 0; border-radius: 15px; box-shadow: 0 3px 14px rgba(25,60,50,.07); }
+.coordinates { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 10px; font-weight: 650; font-variant-numeric: tabular-nums; }
+.location-preview { background: #ebf7f0; border: 1px solid #c8e5d8; padding: 14px; border-radius: 12px; margin-top: 20px; }
+.success-note { background: #eaf6ed; border-radius: 12px; padding: 12px; margin-top: 18px; }
+.offline-banner { background: #fff3d6; padding: 12px; border-radius: 10px; color: #755200; }
+.connected-tag { background: #e8f6eb; padding: 12px; border-radius: 10px; }
+.small-note { display: block; font-size: .85rem; color: #647b78; line-height: 1.5; }
+@media (max-width: 520px) {
+  .content-shell { padding: 16px 14px 30px; }
+  .form-card, .state-panel { padding: 18px 16px; border-radius: 14px; }
+  .coordinates { flex-direction: column; gap: 2px; }
+  .section-header { flex-wrap: wrap; }
+  .login-shell { margin-top: 7vh; }
+}
