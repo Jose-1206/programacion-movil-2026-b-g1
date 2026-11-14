@@ -1,0 +1,4 @@
+Temperatura: 28 grados
+Humedad: 65%
+Estudiantes presentes: 120
+Temperatura: 28 grados
